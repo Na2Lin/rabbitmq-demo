@@ -1,0 +1,18 @@
+server:
+  port: 8080
+spring:
+  rabbitmq:
+    host: 127.0.0.1 #连接rabbitmq server地址
+    port: 5672 # 连接端口 默认5672
+    username: tml # 用户 默认guest
+    password: Ts9_dEgJXs # guest用户密码 guest
+    virtual-host: /
+    listener:
+      simple:
+        acknowledge-mode: auto # 自动ack
+        retry:
+          enabled: true # 开启重试
+          max-attempts: 5 # 最大重试次数 
+          max-interval: 10000 # 最大重试间隔时间
+          initial-interval: 2000 # 最小重试间隔时间
+          multiplier: 2 # 重试间隔时间增加因子 （上次间隔时间*这个数=本次间隔时间，但不会超过最大间隔时间）
