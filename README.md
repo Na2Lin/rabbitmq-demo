@@ -119,7 +119,7 @@
           Message message = new Message();
           message.setDate(new  Date());
           message.setName("name");
-          rabbitTemplate.convertAndSend(EXCHANGE_NAME, "ROUTER_KEY",message); // 发送消息
+          rabbitTemplate.convertAndSend(EXCHANGE_NAME, ROUTER_KEY,message); // 发送消息
           return "Hello World!";
       }
     }
